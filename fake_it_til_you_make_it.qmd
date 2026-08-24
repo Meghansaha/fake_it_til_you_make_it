@@ -1,0 +1,34 @@
+---
+title: "Fake It Til' You Make It"
+subtitle: "Mocking Reality So Your Tests Can Run"
+date: 2026-09-16
+institute: "posit::conf(2026)\\nHouston, TX, U.S"
+date-format: " "
+format: 
+  comic-revealjs:
+    slide-number: false
+    width: 1690
+    height: 1080
+    margin: .2
+    transition: fade
+    linkcolor: "#048781"
+    highlight-style: github
+    code-copy: true
+    code-overflow: scroll
+    code-block-bg: true
+    code-block-height: 1000px
+editor: source
+title-slide-attributes:
+  data-background-image: ""
+  data-background-size: "contain"
+  data-background-position: "center"
+  data-background-color: "#1a1a1a"
+  data-notes: "Presentation notes on title slide"
+---
+
+
+# Slide 1
+
+# Slide 2
+
+# Slide 3
