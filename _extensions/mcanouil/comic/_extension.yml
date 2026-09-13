@@ -11,8 +11,8 @@ contributes:
       theme: comic.scss
       filters:
         - comic.lua
-      logo: comic.svg
-      slide-number: c
+      logo: assets/imgs/qr_gh.svg
+      slide-number: TRUE
       transition: slide
       transition-speed: default
       center: false
@@ -20,6 +20,5 @@ contributes:
       template-partials:
         - partials/title-slide.html
       revealjs-plugins:
-        - revealjs-plugin/page-turn
         - revealjs-plugin/comic-fit
         - revealjs-plugin/tabset
