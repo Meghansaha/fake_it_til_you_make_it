@@ -4,6 +4,7 @@
 .Ruserdata
 
 /.quarto/
+/_site/
 **/*.quarto_ipynb
 fake_it_til_you_make_it_local.qmd
 
