@@ -5,3 +5,11 @@
 
 /.quarto/
 **/*.quarto_ipynb
+fake_it_til_you_make_it_local.qmd
+
+# Rendered output (regenerate locally instead of committing)
+*.html
+*_files/
+
+# that windows bs
+nul

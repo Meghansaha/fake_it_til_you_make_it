@@ -185,7 +185,6 @@ var RevealComicPageTurn = window.RevealComicPageTurn || (function () {
       lastIndexH = event.indexh;
       lastIndexV = event.indexv != null ? event.indexv : 0;
     }
-    playFlip(direction);
   }
 
   function onReady(event) {
@@ -200,8 +199,7 @@ var RevealComicPageTurn = window.RevealComicPageTurn || (function () {
 
   window.ComicPageTurn = {
     setMuted: function (value) { muted = !!value; },
-    isMuted: function () { return muted; },
-    play: function (direction) { playFlip(direction || "next"); }
+    isMuted: function () { return muted; }
   };
 
   return {
