@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="fake_it_til_you_make_it_files/libs/clipboard/clipboard.min.js"></script>
+<script src="fake_it_til_you_make_it_files/libs/quarto-html/tabby.min.js"></script>
+<script src="fake_it_til_you_make_it_files/libs/quarto-html/popper.min.js"></script>
+<script src="fake_it_til_you_make_it_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="fake_it_til_you_make_it_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="fake_it_til_you_make_it_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="fake_it_til_you_make_it_files/libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>Fake It Til’ You Make It</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="fake_it_til_you_make_it_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="fake_it_til_you_make_it_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="fake_it_til_you_make_it_files/libs/revealjs/dist/theme/quarto-6cb0c6cc6dca027d7192952e923e97ac.css">
+  <link href="fake_it_til_you_make_it_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="fake_it_til_you_make_it_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#1a1a1a" data-background-image="" data-background-position="center" data-background-size="contain" class="title-slide quarto-title-block comic-cover center" data-no-sound="">
+  <div class="cover-decor" aria-hidden="true">
+    <div class="cover-burst"></div>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-title-block">
+    </div>
+
+    
+      </div>
+</section>
+<section id="lies-can-be-harmless" class="title-slide slide level1 panel center">
+<h1>Lies can be harmless</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/donut.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="lies-can-be-necessary" class="title-slide slide level1 panel center">
+<h1>Lies can be necessary</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/acting.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="lies-exist-on-a-spectrum" class="title-slide slide level1 panel center">
+<h1>Lies exist on a spectrum</h1>
+<div class="comic-fit">
+<div style="position: relative; width: 100%; height: 850px;">
+<p><img data-src="assets/imgs/spectrum.svg" style="position: absolute; top: 2.5em; left: 0; width: 100%;"></p>
+<div class="fragment">
+<p><img data-src="assets/imgs/mocking.svg" style="position: absolute; top: 15%; left: 85%; width: 23%;"></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="plot-twist-python" class="title-slide slide level1 panel center">
+<h1>Plot Twist: Python 🐍</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/pointblank.svg" style="vertical-align: middle; width: 80%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="a.k.a.-lying-to-your-code-what-is-mocking" class="title-slide slide level1 section center" data-comic-number="01">
+<h1><span class="section-banner">A.K.A. Lying to Your Code</span><span class="section-title">What is Mocking?</span></h1>
+
+</section>
+
+<section id="what-is-mocking" class="title-slide slide level1 speech center">
+<h1>What is Mocking?</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p><span class="fragment">Mocking is a <span style="color: #9b60cc;">testing technique</span></span> <span class="fragment">that requires <span style="color: #9b60cc;">lying</span> to your code</span><span class="fragment">, <span style="color: #9b60cc;">on purpose</span>,</span> <span class="fragment">to <span style="color: #9b60cc;">control</span> the ecosystem it lives in and depends on.</span></callout-p></p>
+</div>
+</section>
+
+<section id="worked-with-these-before" class="title-slide slide level1 panel center">
+<h1>Worked with These Before?</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/ecosystem.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="two-questions-to-ask" class="title-slide slide level1 speech center">
+<h1>Two Questions to Ask</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p> <br><span class="fragment"><span style="color: #9b60cc;">What</span> do we need to lie about?</span> <span class="fragment"><br>&amp;<br><span style="color: #9b60cc;">Where</span> do we need to lie about it?</span> </callout-p></p>
+</div>
+</section>
+
+<section id="well-it-depends-how-can-we-mock" class="title-slide slide level1 section center" data-comic-number="02">
+<h1><span class="section-banner">Well, it depends</span><span class="section-title">How can we Mock?</span></h1>
+
+</section>
+
+<section id="how-do-we-even-do-this" class="title-slide slide level1 panel center">
+<h1>How do we even do this?</h1>
+<div class="comic-fit">
+<div style="position: relative; width: 100%; height: 850px;">
+<p><img data-src="assets/imgs/how_r.svg" style="position: absolute; top: 2em; left: 2em; width: 50%;"></p>
+<div class="fragment">
+<p><img data-src="assets/imgs/how_python.svg" style="position: absolute; bottom: 2em; right: 2em; width: 50%;"></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="october-32nd-sure-why-not" class="title-slide slide level1 panel center">
+<h1>October 32nd? Sure, Why Not 😎</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/dates.svg" style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="a-simple-but-fragile-example" class="title-slide slide level1 panel center">
+<h1>A simple, but fragile, example</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a>was_dose_taken_today <span class="ot">&lt;-</span> <span class="cf">function</span>(dose_date) {</span>
+<span id="cb1-2"><a href="" aria-label="2"></a>  dose_date <span class="sc">==</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb1-3"><a href="" aria-label="3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="a-simple-but-fragile-example-1" class="title-slide slide level1 panel center">
+<h1>A simple, but fragile, example</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="5-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a>was_dose_taken_today <span class="ot">&lt;-</span> <span class="cf">function</span>(dose_date) {</span>
+<span id="cb2-2"><a href="" aria-label="2"></a>  dose_date <span class="sc">==</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb2-3"><a href="" aria-label="3"></a>}</span>
+<span id="cb2-4"><a href="" aria-label="4"></a></span>
+<span id="cb2-5"><a href="" aria-label="5"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb2-6"><a href="" aria-label="6"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb2-7"><a href="" aria-label="7"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb2-8"><a href="" aria-label="8"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb2-9"><a href="" aria-label="9"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="cell-output cell-output-stdout" style="width: 1290px;">
+<pre><code>Test passed 🎉</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="a-simple-but-fragile-example-2" class="title-slide slide level1 panel center">
+<h1>A simple, but fragile, example</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a>was_dose_taken_today <span class="ot">&lt;-</span> <span class="cf">function</span>(dose_date) {</span>
+<span id="cb3-2"><a href="" aria-label="2"></a>  dose_date <span class="sc">==</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb3-3"><a href="" aria-label="3"></a>}</span>
+<span id="cb3-4"><a href="" aria-label="4"></a></span>
+<span id="cb3-5"><a href="" aria-label="5"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb3-6"><a href="" aria-label="6"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb3-7"><a href="" aria-label="7"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb3-8"><a href="" aria-label="8"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb3-9"><a href="" aria-label="9"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="cell-output cell-output-stdout" style="width: 1290px;">
+<pre><code>Test failed
+`was_dose_taken_today(dose_date)` is not TRUE
+
+`actual`:   FALSE
+`expected`: TRUE
+</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="a-simple-but-fragile-example-3" class="title-slide slide level1 panel center">
+<h1>A simple, but fragile, example</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a>was_dose_taken_today <span class="ot">&lt;-</span> <span class="cf">function</span>(dose_date) {</span>
+<span id="cb4-2"><a href="" aria-label="2"></a>  dose_date <span class="sc">==</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb4-3"><a href="" aria-label="3"></a>}</span>
+<span id="cb4-4"><a href="" aria-label="4"></a></span>
+<span id="cb4-5"><a href="" aria-label="5"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb4-6"><a href="" aria-label="6"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb4-7"><a href="" aria-label="7"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb4-8"><a href="" aria-label="8"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>),</span>
+<span id="cb4-9"><a href="" aria-label="9"></a>    <span class="at">.package =</span> <span class="st">"base"</span></span>
+<span id="cb4-10"><a href="" aria-label="10"></a>  )</span>
+<span id="cb4-11"><a href="" aria-label="11"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb4-12"><a href="" aria-label="12"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb4-13"><a href="" aria-label="13"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stdout" style="width: 1330px;">
+<pre><code>
+Test passed with 1 success 🎉.
+</code></pre>
+</div>
+</div>
+</section>
+
+<section id="a-simple-but-fragile-example-4" class="title-slide slide level1 panel center" data-transition="none">
+<h1>A simple, but fragile, example</h1>
+<div class="comic-fit">
+<div class="fragment highlightword" data-word="Sys.Date" data-fragment-index="1" data-number="2" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="Sys.Date" data-fragment-index="2" data-number="2" style="background:white;">
+
+</div>
+<div class="fragment highlightword" data-word="function" data-fragment-index="2" data-number="2" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="function" data-fragment-index="3" data-number="2" style="background:white;">
+
+</div>
+<div class="fragment highlightword" data-word="as.Date" data-fragment-index="3" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="2026-09-16" data-fragment-index="3" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="as.Date" data-fragment-index="4" style="background:white;">
+
+</div>
+<div class="fragment highlightword" data-word="2026-09-16" data-fragment-index="4" style="background:white;">
+
+</div>
+<div class="fragment highlightword" data-word=".package" data-fragment-index="4" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="base" data-fragment-index="4" style="background:yellow;">
+
+</div>
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="7-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>was_dose_taken_today <span class="ot">&lt;-</span> <span class="cf">function</span>(dose_date) {</span>
+<span id="cb5-2"><a href="" aria-label="2"></a>  dose_date <span class="sc">==</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>}</span>
+<span id="cb5-4"><a href="" aria-label="4"></a></span>
+<span id="cb5-5"><a href="" aria-label="5"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb5-6"><a href="" aria-label="6"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb5-7"><a href="" aria-label="7"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb5-8"><a href="" aria-label="8"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>),</span>
+<span id="cb5-9"><a href="" aria-label="9"></a>    <span class="at">.package =</span> <span class="st">"base"</span></span>
+<span id="cb5-10"><a href="" aria-label="10"></a>  )</span>
+<span id="cb5-11"><a href="" aria-label="11"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb5-12"><a href="" aria-label="12"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb5-13"><a href="" aria-label="13"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stdout" style="width: 1330px;">
+<pre><code>
+Test passed with 1 success 🎉.
+</code></pre>
+</div>
+</div>
+</section>
+
+<section id="plot-twist-python-1" class="title-slide slide level1 panel center">
+<h1>Plot Twist: Python 🐍</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/pointblank.svg" style="vertical-align: middle; width: 80%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="the-first-time-i-had-to-mock" class="title-slide slide level1 panel center">
+<h1>The First Time I Had to Mock</h1>
+<div class="comic-fit">
+<p><br><br><br></p>
+<p><img data-src="assets/imgs/get_dfr.svg" style="vertical-align: middle; width: 60%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="the-first-time-i-had-to-mock-1" class="title-slide slide level1 panel center" data-transition="none">
+<h1>The First Time I Had to Mock</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/error_msg.svg" style="vertical-align: middle; width: 60%; transform: scale(1.5); margin-top: 5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="py-full-test" class="title-slide slide level1 panel center">
+<h1>Same Concept, Different Syntax</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-label="1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb6-2"><a href="" aria-label="2"></a>    <span class="st">"library, tbl_type"</span>,</span>
+<span id="cb6-3"><a href="" aria-label="3"></a>    [(<span class="st">"Polars"</span>, <span class="st">"polars"</span>), (<span class="st">"Pandas"</span>, <span class="st">"pandas"</span>), (<span class="st">"Ibis"</span>, <span class="st">"duckdb"</span>)],</span>
+<span id="cb6-4"><a href="" aria-label="4"></a>)</span>
+<span id="cb6-5"><a href="" aria-label="5"></a><span class="kw">def</span> test_get_dataframe_report_missing_libraries(library, tbl_type):</span>
+<span id="cb6-6"><a href="" aria-label="6"></a>    validation <span class="op">=</span> Validate(data<span class="op">=</span><span class="st">"small_table"</span>)</span>
+<span id="cb6-7"><a href="" aria-label="7"></a></span>
+<span id="cb6-8"><a href="" aria-label="8"></a>    <span class="cf">with</span> patch(<span class="st">"pointblank.validate._is_lib_present"</span>) <span class="im">as</span> mock_is_lib:</span>
+<span id="cb6-9"><a href="" aria-label="9"></a>        mock_is_lib.return_value <span class="op">=</span> <span class="va">False</span>  <span class="co"># library not present</span></span>
+<span id="cb6-10"><a href="" aria-label="10"></a></span>
+<span id="cb6-11"><a href="" aria-label="11"></a>        <span class="cf">with</span> pytest.raises(</span>
+<span id="cb6-12"><a href="" aria-label="12"></a>            <span class="pp">ImportError</span>, match<span class="op">=</span><span class="ss">f"The </span><span class="sc">{</span>library<span class="sc">}</span><span class="ss"> library is not installed"</span></span>
+<span id="cb6-13"><a href="" aria-label="13"></a>        ):</span>
+<span id="cb6-14"><a href="" aria-label="14"></a>            validation.get_dataframe_report(tbl_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="same-concept-different-syntax" class="title-slide slide level1 panel center" data-transition="none" data-comic-fit="false">
+<h1>Same Concept, Different Syntax</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3|4|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> patch</span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="cf">with</span> patch(<span class="st">"pointblank.validate._is_lib_present"</span>) <span class="im">as</span> mock:</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>    mock.return_value <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb7-5"><a href="" aria-label="5"></a>    validation.get_dataframe_report(<span class="st">"polars"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="same-concept-different-syntax-1" class="title-slide slide level1 panel center" data-transition="none" data-comic-fit="false">
+<h1>Same Concept, Different Syntax</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-label="1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> patch</span>
+<span id="cb8-2"><a href="" aria-label="2"></a></span>
+<span id="cb8-3"><a href="" aria-label="3"></a><span class="cf">with</span> patch(<span class="st">"pointblank.validate._is_lib_present"</span>) <span class="im">as</span> mock:</span>
+<span id="cb8-4"><a href="" aria-label="4"></a>    mock.return_value <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb8-5"><a href="" aria-label="5"></a>    validation.get_dataframe_report(<span class="st">"polars"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stdout" style="width: 1545px;">
+<pre><code>1 passed in 0.01s</code></pre>
+</div>
+</div>
+</section>
+
+<section id="same-concept-different-syntax-2" class="title-slide slide level1 panel center" data-transition="none">
+<h1>Same Concept, Different Syntax</h1>
+<div class="comic-fit">
+<div class="fragment highlightword" data-word="_is_lib_present" data-fragment-index="0" style="background:yellow;">
+
+</div>
+<div class="fragment highlightword" data-word="_is_lib_present" data-fragment-index="1" style="background:white;">
+
+</div>
+<div class="fragment highlightword" data-word="False" data-fragment-index="1" style="background:yellow;">
+
+</div>
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a><span class="im">from</span> unittest.mock <span class="im">import</span> patch</span>
+<span id="cb9-2"><a href="" aria-label="2"></a></span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="cf">with</span> patch(<span class="st">"pointblank.validate._is_lib_present"</span>) <span class="im">as</span> mock:</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>    mock.return_value <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb9-5"><a href="" aria-label="5"></a>    validation.get_dataframe_report(<span class="st">"polars"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stdout" style="width: 1545px;">
+<pre><code>1 passed in 0.01s</code></pre>
+</div>
+</div>
+</section>
+
+<section id="neither" class="title-slide slide level1 panel center">
+<h1>Neither</h1>
+<div class="comic-fit">
+<div style="display: flex; justify-content: center; align-items: center; gap: 2em; width: 100%; height: 80vh;">
+<p><img data-src="assets/imgs/not_r.svg" style="width: 135%; height: auto;"></p>
+<p><img data-src="assets/imgs/not_python.svg" style="width: 135%; height: auto;"></p>
+</div>
+</div>
+</section>
+
+<section id="software-engineering-101" class="title-slide slide level1 panel center">
+<h1>Software Engineering 101</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/swe101.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="same-pattern-every-time" class="title-slide slide level1 panel center">
+<h1>Same Pattern, Every Time</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/ecosystem_2.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="remember" class="title-slide slide level1 speech center">
+<h1>Remember…</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p><span class="fragment">Mock <span style="color: #9b60cc;">what</span> you don’t control</span><span class="fragment">, <span style="color: #9b60cc;">where</span> it enters your code.</span></callout-p></p>
+</div>
+</section>
+
+<section id="when-you-shouldnt-lie" class="title-slide slide level1 section center" data-comic-number="03">
+<h1><span class="section-title">When You Shouldn’t Lie</span></h1>
+
+</section>
+
+<section id="i-have-a-confession" class="title-slide slide level1 speech center">
+<h1>I Have a Confession</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p><span class="fragment">I <span style="color: #9b60cc;">lied</span> to you before.</span></callout-p></p>
+</div>
+</section>
+
+<section id="same-example-actually-correct" class="title-slide slide level1 panel center">
+<h1>Same Example, Actually Correct</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb10-2"><a href="" aria-label="2"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb10-3"><a href="" aria-label="3"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb10-4"><a href="" aria-label="4"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>),</span>
+<span id="cb10-5"><a href="" aria-label="5"></a>    <span class="at">.package =</span> <span class="st">"base"</span></span>
+<span id="cb10-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb10-7"><a href="" aria-label="7"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb10-8"><a href="" aria-label="8"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb10-9"><a href="" aria-label="9"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="same-example-actually-correct-1" class="title-slide slide level1 panel center">
+<h1>Same Example, Actually Correct</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a>Sys.Date <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a></span>
+<span id="cb11-3"><a href="" aria-label="3"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb11-4"><a href="" aria-label="4"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb11-5"><a href="" aria-label="5"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb11-6"><a href="" aria-label="6"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb11-7"><a href="" aria-label="7"></a>  )</span>
+<span id="cb11-8"><a href="" aria-label="8"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb11-9"><a href="" aria-label="9"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb11-10"><a href="" aria-label="10"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="three-questions" class="title-slide slide level1 speech center">
+<h1><s>Two</s> Three Questions to Ask</h1>
+<div class="comic-stage comic-fit">
+<p><br><br><br></p>
+<p><callout-p-3> <span class="fragment"><span style="color: #9b60cc;">What</span> do we need to lie about?</span> <span class="fragment"><br>&amp;<br><span style="color: #9b60cc;">Where</span> do we need to lie about it?</span> </callout-p-3> <br> <callout-p-2> <span class="fragment">&amp;<br><span class="scrawl-note" style="color: #9b60cc;">How</span> do we keep the lie going?</span> </callout-p-2></p>
+</div>
+</section>
+
+<section id="even-the-docs-know" class="title-slide slide level1 panel center">
+<h1>Even the Docs Know</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/mock_doc_1.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="even-the-docs-know-1" class="title-slide slide level1 panel center" data-transition="none">
+<h1>Even the Docs Know</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/mock_doc_2.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="enter-withr" class="title-slide slide level1 panel center">
+<h1>Enter <code>{withr}</code></h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/withr_1.svg" style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="reach-for-withr-for-environmental-control" class="title-slide slide level1 panel center">
+<h1>Reach for <code>{withr}</code> for environmental control</h1>
+<div class="comic-fit">
+<div style="display: flex; align-items: center; justify-content: center; gap: 3em; width: 100%; height: 80vh;">
+<p><img data-src="assets/imgs/withr_2.svg" style="width: 100%; height: auto;"></p>
+<div style="display: flex; flex-direction: column; gap: 0.7em; text-align: left; font-size: 1.4em;">
+<p><span class="fragment">• Safely and temporarily modify environment</span></p>
+<p><span class="fragment">• Manage side effects in your code</span></p>
+<p><span class="fragment">• When it’s environmental, <span style="color: #9b60cc;">start here</span></span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="three-ways-ive-lied-wrong" class="title-slide slide level1 panel center">
+<h1>Three Ways I’ve Lied Wrong</h1>
+<div class="comic-fit">
+<p><callout-p><font size="20">1. Reaching for mocking, when <span style="color: #9b60cc;">{withr} was already built for the job</span></font></callout-p></p>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a><span class="co"># what I reached for</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a><span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb12-3"><a href="" aria-label="3"></a>  <span class="at">Sys.getenv =</span> <span class="cf">function</span>(x) <span class="st">"fake"</span></span>
+<span id="cb12-4"><a href="" aria-label="4"></a>)</span>
+<span id="cb12-5"><a href="" aria-label="5"></a></span>
+<span id="cb12-6"><a href="" aria-label="6"></a><span class="co"># what actually solves it</span></span>
+<span id="cb12-7"><a href="" aria-label="7"></a>withr<span class="sc">::</span><span class="fu">local_envvar</span>(<span class="at">MY_VAR =</span> <span class="st">"fake"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="three-ways-ive-lied-wrong-1" class="title-slide slide level1 panel center" data-transition="none">
+<h1>Three Ways I’ve Lied Wrong</h1>
+<div class="comic-fit">
+<p><callout-p><font size="20">2. Believing a ‘passed’ mock was correct, but not realizing <span style="color: #9b60cc;">it wasn’t shaped like the real thing</span></font></callout-p></p>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co"># what the mock returned</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>)</span>
+<span id="cb13-3"><a href="" aria-label="3"></a></span>
+<span id="cb13-4"><a href="" aria-label="4"></a><span class="co"># what the real thing returns</span></span>
+<span id="cb13-5"><a href="" aria-label="5"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>, <span class="at">data =</span> <span class="fu">tibble</span>(...), <span class="at">errors =</span> <span class="fu">list</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="three-ways-ive-lied-wrong-2" class="title-slide slide level1 panel center" data-transition="none">
+<h1>Three Ways I’ve Lied Wrong</h1>
+<div class="comic-fit">
+<p><callout-p><font size="20">3. Mocking so deep into an abstraction and not realizing, <span style="color: #9b60cc;">it wasn’t that deep</span></font></callout-p></p>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a>outer_fx <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb14-2"><a href="" aria-label="2"></a>  <span class="fu">pre_inner_fx</span>() <span class="co"># &lt;- Should've mocked here</span></span>
+<span id="cb14-3"><a href="" aria-label="3"></a>  <span class="fu">inner_fx</span>()</span>
+<span id="cb14-4"><a href="" aria-label="4"></a>  <span class="fu">inner_inner_fx</span>()</span>
+<span id="cb14-5"><a href="" aria-label="5"></a>  <span class="fu">inner_inner_inner_fx</span>() <span class="co">#&lt;- Tried to mock here</span></span>
+<span id="cb14-6"><a href="" aria-label="6"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+
+<section id="the-rule" class="title-slide slide level1 speech center">
+<h1>The Rule</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p><span class="fragment">If you’re <span style="color: #9b60cc;">sure</span> you need to lie</span><span class="fragment">, use the <span style="color: #9b60cc;">simplest tool</span> to lie about <span style="color: #9b60cc;">the world</span> your code lives in.</span> <span class="fragment"><span style="color: #9b60cc;">Never</span> the thing you’re testing.</span></callout-p></p>
+</div>
+</section>
+
+<section id="so-why-bother" class="title-slide slide level1 section center" data-comic-number="04">
+<h1><span class="section-title">So, Why Bother?</span></h1>
+
+</section>
+
+<section id="next-time-you-see-chaos" class="title-slide slide level1 panel center">
+<h1>Next Time You See Chaos</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/chaos.svg" style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="flip-your-script" class="title-slide slide level1 speech center">
+<h1>Flip your Script</h1>
+<div class="comic-stage comic-fit">
+<p><callout-p><span class="fragment"><span style="color: #9b60cc;">Stop</span> asking “how do I make my test hit production?”</span></callout-p> <br><br> <callout-p><span class="fragment"><span style="color: #9b60cc;">Start</span> asking “what part of this should I fake?”</span></callout-p></p>
+</div>
+</section>
+
+<section id="still-messy.-less-scary." class="title-slide slide level1 panel center">
+<h1>Still Messy. Less Scary.</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/calm.svg" style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
+<style>
+/* Closing slide reuses the title/section styling but shouldn't show a chapter number */
+.slides section.section.no-chapter-number::after {
+  content: none !important;
+}
+</style>
+</div>
+</section>
+
+<section id="fake-it-til-you-make-it" class="title-slide slide level1 section no-chapter-number center" style="padding-top: 4%;" data-comic-number="05">
+<h1><span class="section-title">Fake It ’Til You Make It</span></h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/me.svg" style="display: block; width: 100%; margin: 1em auto 0 auto;"></p>
+
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="assets/imgs/qr_gh.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-comic-fit/comic-fit.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-js-tabset/tabset.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-confetti/confetti.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/reveal-highlightword/highlightword.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="fake_it_til_you_make_it_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'confetti': {"particleCount":150,"angle":90,"spread":360,"startVelocity":25,"decay":0.9,"gravity":0.65,"drift":0,"ticks":400,"colors":["#ba03fc","#f54281","#491fd1"],"shapes":null,"scalar":0.7,"zIndex":100,"disableForReducedMotion":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1690,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealComicFit, RevealJsTabset, RevealConfetti, RevealHighlightword, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
