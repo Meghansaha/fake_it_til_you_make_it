@@ -4,7 +4,7 @@
 
 ## **About**
 
-This repository contains supplemental resources and materials that coincide with the *"Resources for Fake It Til' You Make It: Mocking Reality So Your Tests Can Ru"* talk at [Posit::conf(2026)](https://conf.posit.co/2026/sessions/).
+This repository contains supplemental resources and materials that coincide with the *"Fake It Til' You Make It: Mocking Reality So Your Tests Can Run"* talk at [Posit::conf(2026)](https://conf.posit.co/2026/sessions/).
 
 ### Abstract
 As data scientists mature in their work, many move from analysis scripts to larger codebases and packages, bringing unit testing into the workflow. For some, a handful of basic tests is enough. For others, as code grows more complex, familiar testing patterns may start to break. We’ll explore testing in isolation as a practical way to handle more challenging programming scenarios. We’ll cover the core ideas behind mocking and controlling your code’s environment while focusing on when, where, how, and why these techniques help in real projects.
