@@ -584,12 +584,12 @@ Test passed with 1 success 🎉.
 </div>
 </section>
 
-<section id="same-example-actually-correct" class="title-slide slide level1 panel center">
+<section id="same-example-actually-correct" class="title-slide slide level1 panel center" data-transition="none">
 <h1>Same Example, Actually Correct</h1>
 <div class="comic-fit">
 <p><br><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">library</span>(testthat)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">library</span>(testthat)</span>
 <span id="cb10-2"><a href="" aria-label="2"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
 <span id="cb10-3"><a href="" aria-label="3"></a>  <span class="fu">local_mocked_bindings</span>(</span>
 <span id="cb10-4"><a href="" aria-label="4"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>),</span>
@@ -602,21 +602,49 @@ Test passed with 1 success 🎉.
 </div>
 </section>
 
-<section id="same-example-actually-correct-1" class="title-slide slide level1 panel center">
+<section id="same-example-actually-correct-1" class="title-slide slide level1 panel center" data-transition="none">
 <h1>Same Example, Actually Correct</h1>
 <div class="comic-fit">
 <p><br><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a>Sys.Date <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb11-2"><a href="" aria-label="2"></a></span>
-<span id="cb11-3"><a href="" aria-label="3"></a><span class="fu">library</span>(testthat)</span>
-<span id="cb11-4"><a href="" aria-label="4"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
-<span id="cb11-5"><a href="" aria-label="5"></a>  <span class="fu">local_mocked_bindings</span>(</span>
-<span id="cb11-6"><a href="" aria-label="6"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
-<span id="cb11-7"><a href="" aria-label="7"></a>  )</span>
-<span id="cb11-8"><a href="" aria-label="8"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
-<span id="cb11-9"><a href="" aria-label="9"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
-<span id="cb11-10"><a href="" aria-label="10"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb11-2"><a href="" aria-label="2"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb11-3"><a href="" aria-label="3"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb11-4"><a href="" aria-label="4"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb11-5"><a href="" aria-label="5"></a>  )</span>
+<span id="cb11-6"><a href="" aria-label="6"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb11-7"><a href="" aria-label="7"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb11-8"><a href="" aria-label="8"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="cell-output cell-output-stdout" style="width: 1310px;">
+<pre><code>Error in `local_mocked_bindings()`:
+Can't find binding for `Sys.Date`.</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="same-example-actually-correct-2" class="title-slide slide level1 panel center" data-transition="none">
+<h1>Same Example, Actually Correct</h1>
+<div class="comic-fit">
+<p><br><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>Sys.Date <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a></span>
+<span id="cb12-3"><a href="" aria-label="3"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb12-4"><a href="" aria-label="4"></a><span class="fu">test_that</span>(<span class="st">"logs dose correctly"</span>, {</span>
+<span id="cb12-5"><a href="" aria-label="5"></a>  <span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb12-6"><a href="" aria-label="6"></a>    <span class="at">Sys.Date =</span> <span class="cf">function</span>() <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb12-7"><a href="" aria-label="7"></a>  )</span>
+<span id="cb12-8"><a href="" aria-label="8"></a>  dose_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2026-09-16"</span>)</span>
+<span id="cb12-9"><a href="" aria-label="9"></a>  <span class="fu">expect_true</span>(<span class="fu">was_dose_taken_today</span>(dose_date))</span>
+<span id="cb12-10"><a href="" aria-label="10"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="cell-output cell-output-stdout" style="width: 1310px;">
+<pre><code>Test passed 🎉</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -670,13 +698,13 @@ Test passed with 1 success 🎉.
 <p><callout-p><font size="20">1. Reaching for mocking, when <span style="color: #9b60cc;">{withr} was already built for the job</span></font></callout-p></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a><span class="co"># what I reached for</span></span>
-<span id="cb12-2"><a href="" aria-label="2"></a><span class="fu">local_mocked_bindings</span>(</span>
-<span id="cb12-3"><a href="" aria-label="3"></a>  <span class="at">Sys.getenv =</span> <span class="cf">function</span>(x) <span class="st">"fake"</span></span>
-<span id="cb12-4"><a href="" aria-label="4"></a>)</span>
-<span id="cb12-5"><a href="" aria-label="5"></a></span>
-<span id="cb12-6"><a href="" aria-label="6"></a><span class="co"># what actually solves it</span></span>
-<span id="cb12-7"><a href="" aria-label="7"></a>withr<span class="sc">::</span><span class="fu">local_envvar</span>(<span class="at">MY_VAR =</span> <span class="st">"fake"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co"># what I reached for</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a><span class="fu">local_mocked_bindings</span>(</span>
+<span id="cb13-3"><a href="" aria-label="3"></a>  <span class="at">Sys.getenv =</span> <span class="cf">function</span>(x) <span class="st">"fake"</span></span>
+<span id="cb13-4"><a href="" aria-label="4"></a>)</span>
+<span id="cb13-5"><a href="" aria-label="5"></a></span>
+<span id="cb13-6"><a href="" aria-label="6"></a><span class="co"># what actually solves it</span></span>
+<span id="cb13-7"><a href="" aria-label="7"></a>withr<span class="sc">::</span><span class="fu">local_envvar</span>(<span class="at">MY_VAR =</span> <span class="st">"fake"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -687,11 +715,11 @@ Test passed with 1 success 🎉.
 <p><callout-p><font size="20">2. Believing a ‘passed’ mock was correct, but not realizing <span style="color: #9b60cc;">it wasn’t shaped like the real thing</span></font></callout-p></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co"># what the mock returned</span></span>
-<span id="cb13-2"><a href="" aria-label="2"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>)</span>
-<span id="cb13-3"><a href="" aria-label="3"></a></span>
-<span id="cb13-4"><a href="" aria-label="4"></a><span class="co"># what the real thing returns</span></span>
-<span id="cb13-5"><a href="" aria-label="5"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>, <span class="at">data =</span> <span class="fu">tibble</span>(...), <span class="at">errors =</span> <span class="fu">list</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a><span class="co"># what the mock returned</span></span>
+<span id="cb14-2"><a href="" aria-label="2"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>)</span>
+<span id="cb14-3"><a href="" aria-label="3"></a></span>
+<span id="cb14-4"><a href="" aria-label="4"></a><span class="co"># what the real thing returns</span></span>
+<span id="cb14-5"><a href="" aria-label="5"></a><span class="fu">list</span>(<span class="at">status =</span> <span class="st">"ok"</span>, <span class="at">data =</span> <span class="fu">tibble</span>(...), <span class="at">errors =</span> <span class="fu">list</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -702,12 +730,12 @@ Test passed with 1 success 🎉.
 <p><callout-p><font size="20">3. Mocking so deep into an abstraction and not realizing, <span style="color: #9b60cc;">it wasn’t that deep</span></font></callout-p></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a>outer_fx <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb14-2"><a href="" aria-label="2"></a>  <span class="fu">pre_inner_fx</span>() <span class="co"># &lt;- Should've mocked here</span></span>
-<span id="cb14-3"><a href="" aria-label="3"></a>  <span class="fu">inner_fx</span>()</span>
-<span id="cb14-4"><a href="" aria-label="4"></a>  <span class="fu">inner_inner_fx</span>()</span>
-<span id="cb14-5"><a href="" aria-label="5"></a>  <span class="fu">inner_inner_inner_fx</span>() <span class="co">#&lt;- Tried to mock here</span></span>
-<span id="cb14-6"><a href="" aria-label="6"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-label="1"></a>outer_fx <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb15-2"><a href="" aria-label="2"></a>  <span class="fu">pre_inner_fx</span>() <span class="co"># &lt;- Should've mocked here</span></span>
+<span id="cb15-3"><a href="" aria-label="3"></a>  <span class="fu">inner_fx</span>()</span>
+<span id="cb15-4"><a href="" aria-label="4"></a>  <span class="fu">inner_inner_fx</span>()</span>
+<span id="cb15-5"><a href="" aria-label="5"></a>  <span class="fu">inner_inner_inner_fx</span>() <span class="co">#&lt;- Tried to mock here</span></span>
+<span id="cb15-6"><a href="" aria-label="6"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -739,6 +767,13 @@ Test passed with 1 success 🎉.
 </section>
 
 <section id="still-messy.-less-scary." class="title-slide slide level1 panel center">
+<h1>Still Messy. Less Scary.</h1>
+<div class="comic-fit">
+<p><img data-src="assets/imgs/calm.svg" style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
+</div>
+</section>
+
+<section id="still-messy.-less-scary.-1" class="title-slide slide level1 panel center" data-transition="none">
 <h1>Still Messy. Less Scary.</h1>
 <div class="comic-fit">
 <p><img data-src="assets/imgs/calm.svg" style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"></p>
@@ -802,7 +837,7 @@ Test passed with 1 success 🎉.
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'confetti': {"particleCount":150,"angle":90,"spread":360,"startVelocity":25,"decay":0.9,"gravity":0.65,"drift":0,"ticks":400,"colors":["#ba03fc","#f54281","#491fd1"],"shapes":null,"scalar":0.7,"zIndex":100,"disableForReducedMotion":false},
+'confetti': {"particleCount":200,"angle":360,"spread":360,"startVelocity":25,"decay":0.9,"gravity":0.65,"drift":0,"ticks":400,"colors":["#ba03fc","#f54281","#491fd1"],"shapes":null,"scalar":0.7,"zIndex":100,"disableForReducedMotion":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
