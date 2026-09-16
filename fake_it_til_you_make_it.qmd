@@ -21,8 +21,8 @@ format:
     resources:
         - fonts/ 
     confetti:
-      particleCount: 150
-      angle: 90
+      particleCount: 200
+      angle: 360
       spread: 360
       startVelocity: 25
       gravity: 0.65
@@ -46,11 +46,9 @@ title-slide-attributes:
 
 ![](assets/imgs/donut.svg){style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"}
 
-
 # Lies can be necessary {.panel}
 
 ![](assets/imgs/acting.svg){style="vertical-align: middle; width: 100%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"}
-
 
 # Lies exist on a spectrum {.panel}
 
@@ -69,8 +67,8 @@ title-slide-attributes:
 
 ![](assets/imgs/pointblank.svg){style="vertical-align: middle; width: 80%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"}
 
-
 # A.K.A. Lying to Your Code: What is Mocking? {.section}
+
 
 # What is Mocking?  {.speech}
 
@@ -89,7 +87,6 @@ title-slide-attributes:
 </callout-p>
 
 # Well, it depends: How can we Mock? {.section}
-
 
 # How do we even do this? {.panel}
 
@@ -179,6 +176,7 @@ test_that("logs dose correctly", {
 </div>
 :::
 
+
 # A simple, but fragile, example {.panel}
 
 <br><br>
@@ -206,7 +204,6 @@ test_that("logs dose correctly", {
 Test passed with 1 success 🎉.
 </code></pre>
 </div>
-
 
 # A simple, but fragile, example {.panel data-transition="none"}
 
@@ -257,11 +254,9 @@ Test passed with 1 success 🎉.
 </code></pre>
 </div>
 
-
 # Plot Twist: Python 🐍 {.panel}
 
 ![](assets/imgs/pointblank.svg){style="vertical-align: middle; width: 80%; margin-top: 2.5em; margin-left: auto; margin-right: auto;"}
-
 
 # The First Time I Had to Mock {.panel}
 
@@ -330,7 +325,6 @@ with patch("pointblank.validate._is_lib_present") as mock:
 <pre><code>1 passed in 0.01s</code></pre>
 </div>
 
-
 # Same Concept, Different Syntax {.panel data-transition="none"}
 
 ::: {.fragment .highlightword word="_is_lib_present" fragment-index=0 style="background:yellow;"}
@@ -385,7 +379,7 @@ with patch("pointblank.validate._is_lib_present") as mock:
 
 <callout-p>[I [lied]{style="color: #9b60cc;"} to you before.]{.fragment}</callout-p>
 
-# Same Example, Actually Correct {.panel}
+# Same Example, Actually Correct {.panel data-transition="none"}
 
 <br><br>
 
@@ -393,6 +387,8 @@ with patch("pointblank.validate._is_lib_present") as mock:
 #| echo: true
 #| message: false
 #| warning: false
+#| code-line-numbers: "|5"
+
 library(testthat)
 test_that("logs dose correctly", {
   local_mocked_bindings(
@@ -404,7 +400,32 @@ test_that("logs dose correctly", {
 })
 ```
 
-# Same Example, Actually Correct {.panel}
+# Same Example, Actually Correct {.panel data-transition="none"}
+
+<br><br>
+
+```{r, eval = FALSE}
+#| echo: true
+#| message: false
+#| warning: false
+library(testthat)
+test_that("logs dose correctly", {
+  local_mocked_bindings(
+    Sys.Date = function() as.Date("2026-09-16")
+  )
+  dose_date <- as.Date("2026-09-16")
+  expect_true(was_dose_taken_today(dose_date))
+})
+```
+
+::: {.fragment}
+<div class="cell-output cell-output-stdout" style="width: 1310px;">
+<pre><code>Error in `local_mocked_bindings()`:
+Can't find binding for `Sys.Date`.</code></pre>
+</div>
+:::
+
+# Same Example, Actually Correct {.panel data-transition="none"}
 
 <br><br>
 
@@ -424,6 +445,11 @@ test_that("logs dose correctly", {
 })
 ```
 
+::: {.fragment}
+<div class="cell-output cell-output-stdout" style="width: 1310px;">
+<pre><code>Test passed 🎉</code></pre>
+</div>
+:::
 
 # <s>Two</s> Three Questions to Ask {.speech #three-questions}
 
@@ -437,6 +463,7 @@ test_that("logs dose correctly", {
 <callout-p-2>
 [&<br>[How]{.scrawl-note style="color: #9b60cc;"} do we keep the lie going?]{.fragment}
 </callout-p-2>
+
 
 # Even the Docs Know {.panel}
 
@@ -503,7 +530,6 @@ list(status = "ok")
 list(status = "ok", data = tibble(...), errors = list())
 ```
 
-
 # Three Ways I've Lied Wrong {.panel data-transition="none"}
 
 <callout-p><font size="20">3. Mocking so deep into an abstraction and not realizing, [it wasn't that deep]{style="color: #9b60cc;"}</font></callout-p>
@@ -521,12 +547,13 @@ outer_fx <- function() {
 }
 ```
 
+
 # The Rule {.speech}
 
 <callout-p>[If you're [sure]{style="color: #9b60cc;"} you need to lie]{.fragment}[, use the [simplest tool]{style="color: #9b60cc;"} to lie about [the world]{style="color: #9b60cc;"} your code lives in.]{.fragment} [[Never]{style="color: #9b60cc;"} the thing you're testing.]{.fragment}</callout-p>
 
-# So, Why Bother? {.section}
 
+# So, Why Bother? {.section}
 
 # Next Time You See Chaos {.panel}
 
@@ -539,6 +566,10 @@ outer_fx <- function() {
 <callout-p>[[Start]{style="color: #9b60cc;"} asking "what part of this should I fake?"]{.fragment}</callout-p>
 
 # Still Messy. Less Scary. {.panel}
+
+![](assets/imgs/calm.svg){style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"}
+
+# Still Messy. Less Scary. {.panel data-transition="none"}
 
 ![](assets/imgs/calm.svg){style="vertical-align: middle; width: 100%; transform: scale(1.5); margin-top: 3em; margin-left: auto; margin-right: auto;"}
 
